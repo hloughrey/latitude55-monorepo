@@ -4,17 +4,18 @@ version: 2.1
 workflows:
   test:
     jobs:
-      - test
+      - format_test
 
 jobs:
-  test:
+  format_test:
     docker:
       - image: cimg/node:16.7.0
     steps:
       - checkout
-      - run: # print the name of the branch we're on
-          name: "What branch am I on?"
-          command: echo ${CIRCLE_BRANCH}
+      - run: |
+          if [ "$CIRCLE_BRANCH" = "master" ]; then
+              circleci-agent step halt
+          fi
       - restore_cache:
           name: Restore Cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
@@ -28,10 +29,10 @@ jobs:
             - ./node_modules
       - run:
           name: Format Code
-          command: npm run format:check
+          command: npm run format:check --base=${CIRCLE_BRANCH} --parallel
       - run:
           name: Lint Code
-          command: npm run affected:lint
+          command: npm run affected:lint --base=${CIRCLE_BRANCH} --parallel
       - run:
           name: Run Tests
-          command: npm run affected:test
+          command: npm run affected:test --base=${CIRCLE_BRANCH} --code-coverage --parallel

@@ -1,0 +1,26 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+      - test
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:16.7.0
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Format Code
+          command: yarn format:check
+      - run:
+          name: Lint Code
+          command: yarn affected:lint
+      - run:
+          name: Run Tests
+          command: yarn affected:test

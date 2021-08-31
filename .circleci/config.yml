@@ -41,11 +41,5 @@ jobs:
           command: npm run affected:test --base=${CIRCLE_BRANCH}~1 --head=HEAD --code-coverage --parallel
           parallelism: 4
       - run:
-          name: List affected apps command
-          command: echo nx affected:apps --base=${CIRCLE_BRANCH}~1 --head=HEAD
-      - run:
-          name: List affected apps command 2
-          command: echo nx affected:apps --base=${CIRCLE_BRANCH} --head=HEAD
-      - run:
           name: List affected apps
-          command: nx affected:apps --base=${CIRCLE_BRANCH}~1 --head=HEAD
+          command: npm run affected:apps --base=${CIRCLE_BRANCH}~1 --head=HEAD

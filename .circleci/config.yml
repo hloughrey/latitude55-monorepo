@@ -28,6 +28,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: Print Circle Branch
+          command: echo ${CIRCLE_BRANCH}~1
+      - run:
           name: Format Code
           command: npm run format:check --base=${CIRCLE_BRANCH}~1 --head=HEAD --parallel
       - run:
@@ -37,6 +40,12 @@ jobs:
           name: Run Tests
           command: npm run affected:test --base=${CIRCLE_BRANCH}~1 --head=HEAD --code-coverage --parallel
           parallelism: 4
+      - run:
+          name: List affected apps command
+          command: echo nx affected:apps --base=${CIRCLE_BRANCH}~1 --head=HEAD
+      - run:
+          name: List affected apps command 2
+          command: echo nx affected:apps --base=${CIRCLE_BRANCH} --head=HEAD
       - run:
           name: List affected apps
           command: nx affected:apps --base=${CIRCLE_BRANCH}~1 --head=HEAD

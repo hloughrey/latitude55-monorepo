@@ -3,11 +3,11 @@ import Link from 'next/link';
 export function Index() {
   return (
     <div>
-      <h1>Welcome to the new Properties application</h1>
+      <h1>Welcome to the new Marketing application</h1>
       <ul>
         <li>
-          <Link href="/" passHref>
-            <a>Link to marketing site</a>
+          <Link href="/properties" passHref>
+            <a>Link to properties</a>
           </Link>
         </li>
       </ul>

@@ -4,10 +4,6 @@
     "defaultBase": "master"
   },
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
     ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
@@ -27,6 +23,13 @@
     ]
   },
   "projects": {
+    "marketing": {
+      "tags": []
+    },
+    "marketing-e2e": {
+      "tags": [],
+      "implicitDependencies": ["marketing"]
+    },
     "properties": {
       "tags": []
     },

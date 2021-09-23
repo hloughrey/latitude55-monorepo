@@ -1,0 +1,9 @@
+{
+    "*.{ts,js}?(x)": [
+      "eslint --fix"
+    ],
+    "*.styled.{ts,js}?(x)": [
+      "stylelint"
+    ],
+    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --ignore-unknown --write"
+  }

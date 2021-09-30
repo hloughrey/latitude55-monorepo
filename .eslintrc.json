@@ -31,6 +31,13 @@
               "env": true
             }
           }
+        ],
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "kebabCase",
+            "ignore": ["\\[(.*?)\\].*"]
+          }
         ]
       }
     },

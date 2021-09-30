@@ -6,7 +6,7 @@ export function Index() {
       <h1>Welcome to the new Properties application</h1>
       <ul>
         <li>
-          <Link href="/" passHref>
+          <Link href={`${process.env.NEXT_PUBLIC_BASE_DOMAIN}`} passHref>
             <a>Link to marketing site</a>
           </Link>
         </li>

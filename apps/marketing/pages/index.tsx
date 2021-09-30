@@ -6,7 +6,7 @@ export function Index() {
       <h1>Welcome to the new Marketing application</h1>
       <ul>
         <li>
-          <Link href="/properties" passHref>
+          <Link href="/properties/" passHref>
             <a>Link to properties</a>
           </Link>
         </li>

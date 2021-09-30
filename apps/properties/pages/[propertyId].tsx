@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { StyledHeading } from '../page-lib/[propertyId]';
 
 export default function Property() {
   const router = useRouter();
@@ -6,7 +7,7 @@ export default function Property() {
 
   return (
     <div>
-      <h2>Your property ID is: {propertyId}</h2>
+      <StyledHeading>Your property ID is: {propertyId}</StyledHeading>
     </div>
   );
 }

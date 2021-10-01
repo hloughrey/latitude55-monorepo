@@ -10,12 +10,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -33,18 +28,14 @@
     },
     "marketing-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "marketing"
-      ]
+      "implicitDependencies": ["marketing"]
     },
     "properties": {
       "tags": []
     },
     "properties-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "properties"
-      ]
+      "implicitDependencies": ["properties"]
     },
     "shared-ui-components": {
       "tags": []

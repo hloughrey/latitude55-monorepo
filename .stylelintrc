@@ -11,7 +11,7 @@
         "color-no-hex": true,
         "declaration-no-important": true,
         "length-zero-no-unit": true,
-        "unit-whitelist": [
+        "unit-allowed-list": [
             [
                 "rem",
                 "deg",
@@ -23,6 +23,6 @@
                 "fr"
             ],
             {}
-        ],
+        ]
     }
 }

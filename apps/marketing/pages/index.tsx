@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { StyledHeading } from '../page-lib/index-page';
 
 export function Index() {
   return (
     <div>
-      <h1>Welcome to the new Marketing application</h1>
+      <StyledHeading>Welcome to the new Marketing application</StyledHeading>
       <ul>
         <li>
           <Link href="/properties/" passHref>

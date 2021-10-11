@@ -15,10 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@latitude55/JestSetTestProps": [
+        "libs/shared/util/jest/set-test-props/src/index.ts"
+      ],
+      "@latitude55/StorybookIgnoreStory": [
+        "libs/shared/util/storybook/ignore-story/src/index.ts"
+      ],
       "@latitude55/shared/ui/components": [
         "libs/shared/ui/components/src/index.ts"
       ],
-      "@latitude55/shared/ui/theme": ["libs/shared/ui/theme/src/index.ts"]
+      "@latitude55/theme": ["libs/shared/ui/theme/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

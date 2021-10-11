@@ -15,6 +15,7 @@ export const breakpoints = ['xs', 's', 'm', 'l', 'xl'] as const;
 export type TBreakpoint = typeof breakpoints[number];
 
 export type Theme = {
+  name: string;
   colors: {
     primaryColor: string;
     secondaryColor: string;

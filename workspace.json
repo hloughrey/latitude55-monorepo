@@ -180,6 +180,37 @@
             "jestConfig": "libs/shared/ui/components/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/shared/ui/components/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/shared-ui-components",
+            "config": {
+              "configFolder": "libs/shared/ui/components/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     },
@@ -200,6 +231,52 @@
           "outputs": ["coverage/libs/shared/ui/theme"],
           "options": {
             "jestConfig": "libs/shared/ui/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-util-jest-set-test-props": {
+      "root": "libs/shared/util/jest/set-test-props",
+      "sourceRoot": "libs/shared/util/jest/set-test-props/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared/util/jest/set-test-props/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util/jest/set-test-props"],
+          "options": {
+            "jestConfig": "libs/shared/util/jest/set-test-props/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-util-storybook-ignore-story": {
+      "root": "libs/shared/util/storybook/ignore-story",
+      "sourceRoot": "libs/shared/util/storybook/ignore-story/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/util/storybook/ignore-story/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util/storybook/ignore-story"],
+          "options": {
+            "jestConfig": "libs/shared/util/storybook/ignore-story/jest.config.js",
             "passWithNoTests": true
           }
         }

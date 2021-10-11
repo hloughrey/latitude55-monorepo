@@ -10,7 +10,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
@@ -41,6 +47,12 @@
       "tags": []
     },
     "shared-ui-theme": {
+      "tags": []
+    },
+    "shared-util-jest-set-test-props": {
+      "tags": []
+    },
+    "shared-util-storybook-ignore-story": {
       "tags": []
     }
   }

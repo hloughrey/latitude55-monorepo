@@ -1,6 +1,34 @@
 {
   "migrations": [
     {
+      "version": "8.2.0-beta.1",
+      "description": "Update Cypress Config",
+      "factory": "./src/migrations/update-8-2-0/update-8-2-0",
+      "package": "@nrwl/cypress",
+      "name": "update-8.2.0"
+    },
+    {
+      "version": "8.10.0-beta.1",
+      "description": "Update Cypress to 3.6.1",
+      "factory": "./src/migrations/update-8-10-0/update-8-10-0",
+      "package": "@nrwl/cypress",
+      "name": "update-8.10.0"
+    },
+    {
+      "version": "8.12.0-beta.1",
+      "description": "Update Cypress to ^3.8.2",
+      "factory": "./src/migrations/update-8-12-0/update-8-12-0",
+      "package": "@nrwl/cypress",
+      "name": "update-8.12.0"
+    },
+    {
+      "version": "9.4.0-beta.1",
+      "description": "Add Cypress ESLint plugin",
+      "factory": "./src/migrations/update-9-4-0/add-cypress-eslint-plugin-9-4-0",
+      "package": "@nrwl/cypress",
+      "name": "add-cypress-eslint-plugin-9.4.0"
+    },
+    {
       "cli": "nx",
       "version": "12.8.0-beta.0",
       "description": "Remove Typescript Preprocessor Plugin",
@@ -9,20 +37,57 @@
       "name": "remove-typescript-plugin"
     },
     {
-      "cli": "nx",
-      "version": "12.9.0-beta.0",
-      "description": "Add outputs for caching",
-      "factory": "./src/migrations/update-12-9-0/add-outputs",
-      "package": "@nrwl/linter",
-      "name": "add-outputs"
+      "version": "9.3.1-beta.1",
+      "description": "Rename @nrwl/next:dev-server to @nrwl/next:server",
+      "factory": "./src/migrations/update-9-3-1/update-9-3-1",
+      "package": "@nrwl/next",
+      "name": "update-9.3.1"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Rename emotion packages to match new 11.0.0 package names",
+      "factory": "./src/migrations/update-11-0-0/rename-emotion-packages-11-0-0",
+      "package": "@nrwl/next",
+      "name": "rename-emotion-packages-11.0.0"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-11-0-0/update-11-0-0",
+      "package": "@nrwl/next",
+      "name": "update-11.0.0"
     },
     {
       "cli": "nx",
-      "version": "12.9.0-beta.0",
-      "description": "Remove ESLint parserOptions.project config if no rules requiring type-checking are in use",
-      "factory": "./src/migrations/update-12-4-0/remove-eslint-project-config-if-no-type-checking-rules",
-      "package": "@nrwl/linter",
-      "name": "remove-eslint-project-config-if-no-type-checking-rules-again"
+      "version": "11.5.0-beta.1",
+      "description": "Update .babelrc to use '@nrwl/next/babel' instead of 'next/babel'",
+      "factory": "./src/migrations/update-11-5-0/update-babel-config",
+      "package": "@nrwl/next",
+      "name": "update-babel-config-11.5.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.0-beta.1",
+      "description": "Remove tsconfig.app.json",
+      "factory": "./src/migrations/update-11-5-0/remove-tsconfig-app-11-5-0",
+      "package": "@nrwl/next",
+      "name": "remove-tsconfig-app-11.5.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.6.0-beta.0",
+      "description": "Add js patterns to tsconfig.json",
+      "factory": "./src/migrations/update-11-6-0/add-js-include-11-6-0",
+      "package": "@nrwl/next",
+      "name": "add-js-include-11.6.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.6.0-beta.0",
+      "description": "Add 'next' eslint config",
+      "factory": "./src/migrations/update-12-6-0/add-next-eslint",
+      "package": "@nrwl/next",
+      "name": "add-next-eslint-12.6.0"
     },
     {
       "cli": "nx",
@@ -31,6 +96,195 @@
       "factory": "./src/migrations/update-12-8-0/remove-styled-jsx-babel-plugin",
       "package": "@nrwl/next",
       "name": "fix-nextjs-lib-babel-config-12.8.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.10.0-beta.1",
+      "description": "Updates .eslintrc.json file to use the correct pages directory for '@next/next/no-html-link-for-pages'.",
+      "factory": "./src/migrations/update-12-10-0/fix-page-dir-for-eslint",
+      "package": "@nrwl/next",
+      "name": "fix-page-dir-for-eslint"
+    },
+    {
+      "version": "9.4.0-beta.1",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-9-4-0/update-9-4-0",
+      "package": "@nrwl/react",
+      "name": "update-9.4.0"
+    },
+    {
+      "version": "9.4.0-beta.1",
+      "description": "Migrate to new babel setup for greater flexibility",
+      "factory": "./src/migrations/update-9-4-0/babelrc-9-4-0",
+      "package": "@nrwl/react",
+      "name": "babelrc-9.4.0"
+    },
+    {
+      "version": "9.5.0-beta.1",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-9-5-0/update-9-5-0",
+      "package": "@nrwl/react",
+      "name": "update-9.5.0"
+    },
+    {
+      "version": "10.4.0-beta.1",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-10-4-0/update-10-4-0",
+      "package": "@nrwl/react",
+      "name": "update-10.4.0"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Rename emotion packages to match new 11.0.0 package names",
+      "factory": "./src/migrations/update-11-0-0/rename-emotion-packages-11-0-0",
+      "package": "@nrwl/react",
+      "name": "rename-emotion-packages-11.0.0"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-11-0-0/update-11-0-0",
+      "package": "@nrwl/react",
+      "name": "update-11.0.0"
+    },
+    {
+      "version": "11.2.0-beta.0",
+      "description": "Move react redux typings from dependencies to devDependencies in package.json",
+      "factory": "./src/migrations/update-11-2-0/move-react-redux-types-package-11-2-0",
+      "package": "@nrwl/react",
+      "name": "move-react-redux-types-package-11.2.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Migrate tsconfig.json to allow new jsx transform to be used. Removes the need for `import React from 'react'`",
+      "factory": "./src/migrations/update-12-0-0/use-react-jsx-in-tsconfig",
+      "package": "@nrwl/react",
+      "name": "use-react-jsx-in-tsconfig-12.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Update workspace to use `@emotion/babel-plugin` instead of `@emotion/babel-preset-css-prop` to support new jsx transform",
+      "factory": "./src/migrations/update-12-0-0/update-emotion-setup",
+      "package": "@nrwl/react",
+      "name": "update-emotion-setup-12.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Remove @types/react-redux from package.json since react-redux installs the package automatically now",
+      "factory": "./src/migrations/update-12-0-0/remove-react-redux-types-package",
+      "package": "@nrwl/react",
+      "name": "remove-react-redux-types-package-12.0.0"
+    },
+    {
+      "version": "10.2.1-beta.1",
+      "description": "Adjusts the tsconfig mapping",
+      "factory": "./src/migrations/update-10-2-1/update-10-2-1",
+      "package": "@nrwl/storybook",
+      "name": "update-10.2.1"
+    },
+    {
+      "version": "10.3.1-beta.1",
+      "description": "Add missing storybook config to lint target",
+      "factory": "./src/migrations/update-10-3-0/update-10-3-0",
+      "package": "@nrwl/storybook",
+      "name": "update-10.3.1"
+    },
+    {
+      "version": "11.0.12",
+      "description": "Update storybook if installed and above 6",
+      "factory": "./src/migrations/update-11-0-12/update-storybook",
+      "package": "@nrwl/storybook",
+      "name": "update-11-0-12"
+    },
+    {
+      "version": "11.5.3-beta.1",
+      "description": "Update react storybook lint config",
+      "factory": "./src/migrations/update-11-5-3/update-lint-ignores",
+      "package": "@nrwl/storybook",
+      "name": "update-11-5-3"
+    },
+    {
+      "version": "11.6.4",
+      "cli": "nx",
+      "description": "Update storybook if installed and above 6 but below 6.2.9",
+      "factory": "./src/migrations/update-11-6-0/update-storybook",
+      "package": "@nrwl/storybook",
+      "name": "update-11-6-0"
+    },
+    {
+      "version": "12.1.0-beta.7",
+      "cli": "nx",
+      "description": "Update react storybook tsconfig to avoid VSCode errors",
+      "factory": "./src/migrations/update-12-1-0/fix-storybook-tsconfig",
+      "package": "@nrwl/storybook",
+      "name": "update-12-1-0"
+    },
+    {
+      "version": "12.3.0-rc.1",
+      "cli": "nx",
+      "description": "Update storybook if installed and above 6 but below 6.2.9",
+      "factory": "./src/migrations/update-11-6-0/update-storybook",
+      "package": "@nrwl/storybook",
+      "name": "update-12-3-0"
+    },
+    {
+      "version": "12.5.0-beta.5",
+      "cli": "nx",
+      "description": "Upgrade Storybook to v6.3",
+      "factory": "./src/migrations/update-12-5-0/migrate-storybook-6-3",
+      "package": "@nrwl/storybook",
+      "name": "update-12-5-0"
+    },
+    {
+      "version": "12.5.0-beta.5",
+      "cli": "nx",
+      "description": "Install the @storybook/addon-essentials package",
+      "factory": "./src/migrations/update-12-5-0/install-addon-essentials",
+      "package": "@nrwl/storybook",
+      "name": "install-addon-essentials"
+    },
+    {
+      "version": "12.5.9-beta.1",
+      "cli": "nx",
+      "description": "Update Storybook React typings in tsconfig files",
+      "factory": "./src/migrations/update-12-5-9/update-storybook-react-typings",
+      "package": "@nrwl/storybook",
+      "name": "update-12-5-9-beta.1"
+    },
+    {
+      "version": "12.8.0-beta.11",
+      "cli": "nx",
+      "description": "Adjust Storybook tsconfig to add styled-jsx typings",
+      "factory": "./src/migrations/update-12-8-0/update-storybook-styled-jsx-typings",
+      "package": "@nrwl/storybook",
+      "name": "update-12-8.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Remove presets from the root babel.config.json file to prevent conflicts with babel presets used in apps.",
+      "factory": "./src/migrations/update-11-5-2/update-root-babel-config",
+      "package": "@nrwl/web",
+      "name": "update-root-babel-config-11-5-2"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Create .babelrc files for workspace libs to fix compatibility with the new babel.config.json setup.",
+      "factory": "./src/migrations/update-11-5-2/create-babelrc-for-workspace-libs",
+      "package": "@nrwl/web",
+      "name": "create-babelrc-for-workspace-libs-11-5-2"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Update existing .babelrc files to add missing '@nrwl/web/babel' preset if necessary.",
+      "factory": "./src/migrations/update-11-5-2/update-existing-babelrc-files",
+      "package": "@nrwl/web",
+      "name": "update-existing-babelrc-files-11-5-2"
     }
   ]
 }

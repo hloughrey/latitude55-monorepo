@@ -1,0 +1,12 @@
+import { ReactElement } from 'react';
+
+import { <%= typeName %> } from './<%= fileName %>.types';
+import { StyledDiv } from './<%= fileName %>.styled';
+
+export function <%= componentName %>({
+    componentName,
+}: <%= typeName %>): ReactElement {
+    return (
+        <StyledDiv>Hello, I'm your new {componentName} component 👋!</StyledDiv>
+    );
+}

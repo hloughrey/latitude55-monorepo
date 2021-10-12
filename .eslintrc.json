@@ -20,6 +20,7 @@
             ]
           }
         ],
+        "unicorn/no-console-spaces": "off",
         "unicorn/prefer-module": "off",
         "unicorn/prevent-abbreviations": [
           "error",

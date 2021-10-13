@@ -25,7 +25,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "lint:css": "stylelint \"**/*.styled.ts?(x)\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "updateTOC": "doctoc ./README.md"
   },
   "private": true,
   "dependencies": {
@@ -73,6 +74,7 @@
     "babel-loader": "8.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "cypress": "3.8.3",
+    "doctoc": "2.1.0",
     "dotenv": "10.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",

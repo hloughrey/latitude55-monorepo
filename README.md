@@ -1,81 +1,100 @@
-# Latitude55Monorepo
+<p align="center">
+    <img alt="Latitude55" src="https://res.cloudinary.com/latitude55/image/upload/v1634117961/logo-light.svg" width="210" />
+</p>
+<h1 align="center">
+Mono Repo
+</h1>
 
-This project was generated using [Nx](https://nx.dev).
+# Table of Contents
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-🔎 **Smart, Extensible Build Framework**
+- [Microfrontends](#microfrontends)
+- [🤩 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Running an application locally - Development Mode](#running-an-application-locally---development-mode)
+  - [Running an application locally - Production Mode](#running-an-application-locally---production-mode)
+  - [Running the design guide locally](#running-the-design-guide-locally)
+- [Upgrading Nx workspace](#upgrading-nx-workspace)
+- [Create component](#create-component)
 
-## Adding capabilities to your workspace
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Microfrontends
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Micro-frontends are an incredible architectural model for separating domains & business logic into independently shippable & maintainable flows.
 
-Below are our core plugins:
+## 🤩 Getting Started
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+### Prerequisites
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+- Node >= 14.x.x
 
-## Generate an application
+  You can use [nvm](https://github.com/nvm-sh/nvm) or [nvm for Windows](https://github.com/coreybutler/nvm-windows) in manage multiple node versions if that's helpful.
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+- **Optional** - [Nx Cli](https://nx.dev/l/a/getting-started/nx-cli)
 
-> You can use any of the plugins above to generate applications as well.
+  `yarn global add @nrwl/cli`
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+### Running an application locally - Development Mode
 
-## Generate a library
+1. Install dependencies
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+   ```bash
+   npm i
+   ```
 
-> You can also use any of the plugins above to generate libraries as well.
+1. Start the application you're interested in by running
 
-Libraries are shareable across libraries and applications. They can be imported from `@latitude55-monorepo/mylib`.
+   ```bash
+   // If you completed step 3 in the prerequisites steps
+   nx serve <application-name>
 
-## Development server
+   // Otherwise
+   npm run nx serve <application-name>
+   ```
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+   > **NOTE**: The application name is the name of the directory in the **apps** directory at the root of the repository.
 
-## Code scaffolding
+1. Open the application in your browser at `http://localhost:4200/<application baseUrl>`
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+   See the **README** within the application your running to identify the baseUrl
 
-## Build
+### Running an application locally - Production Mode
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> NOTE: Useful for debugging; this builds and serves the application in the same way as it does in our pipeline for both the QA and production environments.
 
-## Running unit tests
+1. Build the application you're interested in running:
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+   ```bash
+   nx deploy <application-name>
+   ```
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+2. Copy the root level package.json into the build directory:
 
-## Running end-to-end tests
+   ```bash
+   // No environment variables
+   docker run --rm -p 3000:3000  --name properties properties
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+   // With environment variables
+   docker run --rm -p 3000:3000 -e FEATURE_TOGGLE_BOOLEAN=true --name properties properties
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+   ```
 
-## Understand your workspace
+### Running the design guide locally
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design guide.
 
-// CUSTOM
+1. Start Storybook
 
-## Migrating workspace
+   ```bash
+   nx run shared-ui-components:storybook
+   ```
+
+2. Open the design guide in your browser at `http://localhost:4400`
+
+## Upgrading Nx workspace
 
 Run `npx nx migrate latest` to update workspace
 

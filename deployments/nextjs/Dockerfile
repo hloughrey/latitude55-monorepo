@@ -2,9 +2,11 @@ FROM node:16.11.0-alpine AS builder
 
 WORKDIR /usr/src/app
 
-RUN echo "Building the Marketing application"
+ARG applicationName
 
-COPY ./dist/apps/marketing .
+RUN echo "Building the $applicationName application"
+
+COPY ./dist/apps/$applicationName .
 
 RUN npm install --production
 
@@ -17,7 +19,7 @@ WORKDIR /usr/src/app
 RUN ["chmod", "a+rx", "./entrypoint.sh"]
 
 
-RUN echo "Running the Marketing application"
+RUN echo "Running the $applicationName application"
 
 # HEALTHCHECK --interval=1m --timeout=3s \
 #   CMD curl -f http://localhost:4200/marketing/heartbeat || exit 1

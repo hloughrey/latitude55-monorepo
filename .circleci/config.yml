@@ -1,6 +1,9 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
+orbs:
+  node: circleci/node@4.7.0
+
 workflows:
   test:
     jobs:
@@ -8,25 +11,28 @@ workflows:
 
 jobs:
   format_test:
-    docker:
-      - image: cimg/node:16.7.0
+    executor:
+      name: node/default
+      tag: 16.11.0
     steps:
       - checkout
       - run: |
           if [ "$CIRCLE_BRANCH" = "master" ]; then
               circleci-agent step halt
           fi
-      - restore_cache:
-          name: Restore Cache
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install dependencies
-          command: npm i
-      - save_cache:
-          name: Save Cache
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
+      - node/install-packages:
+        pkg-manager: npm
+      # - restore_cache:
+      #     name: Restore Cache
+      #     key: dependency-cache-{{ checksum "package-lock.json" }}
+      # - run:
+      #     name: Install dependencies
+      #     command: npm i
+      # - save_cache:
+      #     name: Save Cache
+      #     key: dependency-cache-{{ checksum "package-lock.json" }}
+      #     paths:
+      #       - ./node_modules
       - run:
           name: Format Code
           command: npm run format:check --base=${CIRCLE_BRANCH} --parallel
@@ -36,3 +42,8 @@ jobs:
       - run:
           name: Run Tests
           command: npm run affected:test --base=${CIRCLE_BRANCH} --code-coverage --parallel
+      # - store_artifacts:
+      #     path: /tmp/test-results
+      #     destination: raw-test-output
+      # - store_test_results
+      #     path: /tmp/test-results

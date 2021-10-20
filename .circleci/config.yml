@@ -34,14 +34,20 @@ workflows:
           requires:
             - install
       - aws-ecr/build-and-push-image:
+          parameters:
+            app:
+              type: string
+          matrix:
+            parameters:
+              app: ["properties", "marketing"]
           requires:
             - build_affected_apps
             - format_and_test
           repo: qa
-          tag: 'latest,properties.0.1.${CIRCLE_BUILD_NUM}'
+          tag: 'latest,<< parameters.app >>.0.1.${CIRCLE_BUILD_NUM}'
           dockerfile: ./deployments/nextjs/Dockerfile
           path: .
-          extra-build-args: --build-arg applicationName=properties
+          extra-build-args: --build-arg applicationName=<< parameters.app >>
           attach-workspace: true
           workspace-root: .
 

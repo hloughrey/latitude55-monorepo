@@ -48,11 +48,11 @@ Micro-frontends are an incredible architectural model for separating domains & b
 1. Start the application you're interested in by running
 
    ```bash
-   // If you completed step 3 in the prerequisites steps
+   // If you installed the Nx cli
    nx serve <application-name>
 
    // Otherwise
-   npm run nx serve <application-name>
+   npx run nx serve <application-name>
    ```
 
    > **NOTE**: The application name is the name of the directory in the **apps** directory at the root of the repository.

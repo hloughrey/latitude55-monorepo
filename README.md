@@ -17,7 +17,7 @@ Mono Repo
   - [Running an application locally - Production Mode](#running-an-application-locally---production-mode)
   - [Running the design guide locally](#running-the-design-guide-locally)
 - [Making new things](#making-new-things)
-  - [New Next application](#new-next-application)
+  - [Next application](#next-application)
   - [Create component](#create-component)
 - [Upgrading Nx workspace](#upgrading-nx-workspace)
 - [Work in progress](#work-in-progress)
@@ -104,10 +104,10 @@ We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design 
 
 ## Making new things
 
-### New Next application
+### Next application
 
 ```bash
-npx nx g @nrwl/next:app
+npx nx g @nrwl/next:app <app name>
 ```
 
 ### Create component

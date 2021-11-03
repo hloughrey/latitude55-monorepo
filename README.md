@@ -16,8 +16,13 @@ Mono Repo
   - [Running an application locally - Development Mode](#running-an-application-locally---development-mode)
   - [Running an application locally - Production Mode](#running-an-application-locally---production-mode)
   - [Running the design guide locally](#running-the-design-guide-locally)
+- [Making new things](#making-new-things)
+  - [New Next application](#new-next-application)
+  - [Create component](#create-component)
 - [Upgrading Nx workspace](#upgrading-nx-workspace)
-- [Create component](#create-component)
+- [Work in progress](#work-in-progress)
+  - [Resources](#resources)
+  - [Running Affected App](#running-affected-app)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

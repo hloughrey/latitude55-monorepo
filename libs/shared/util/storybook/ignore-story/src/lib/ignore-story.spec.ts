@@ -1,9 +1,17 @@
-import { sharedUtilStorybookIgnoreStory } from './shared-util-storybook-ignore-story';
+import { ignoreStory } from './';
 
-describe('sharedUtilStorybookIgnoreStory', () => {
+describe('ignoreStory', () => {
   it('should work', () => {
-    expect(sharedUtilStorybookIgnoreStory()).toEqual(
-      'shared-util-storybook-ignore-story'
-    );
+    const expected = {
+      parameters: {
+        docs: {
+          disable: true,
+        },
+      },
+    };
+
+    const actual = ignoreStory();
+
+    expect(actual).toEqual(expected);
   });
 });

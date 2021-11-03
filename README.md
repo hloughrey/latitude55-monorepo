@@ -103,3 +103,20 @@ Run `npx nx migrate latest` to update workspace
 ```bash
 nx workspace-generator shared-component foo --directory=libs/shared/ui/components --atomicLevel=molecules
 ```
+
+## Work in progress
+
+### Resources
+
+- https://blog.nrwl.io/nx-and-node-microservices-b6df3cd1bad6
+- https://dev.to/itsrennyman/manage-nextpublic-environment-variables-at-runtime-with-docker-53dl
+
+### Running Affected App
+
+```bash
+// build app
+nx affected --target=deploy
+
+// run properties
+docker run --rm -p 3000:3000 -e FEATURE_TOGGLE_BOOLEAN=true -e FEATURE_TOGGLE_DATE='2021-10-11T20:04:34.024Z' -e API_ENDPOINT='https://latitude55/graphql' -e SECRET_NUMBER=772215 -e SECRET_STRING='Clonken' -e NEXT_PUBLIC_FEATURE_TOGGLE_BOOLEAN=false -e NEXT_PUBLIC_FEATURE_TOGGLE_DATE='2021-10-12T20:04:34.024Z' -e NEXT_PUBLIC_API_ENDPOINT='https://latitude55/api' -e NEXT_PUBLIC_SECRET_NUMBER=1510 -e NEXT_PUBLIC_SECRET_STRING='Brookhouse' --name properties properties
+```

@@ -45,19 +45,7 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {
-        "@typescript-eslint/naming-convention": [
-          "error",
-          {
-            "selector": "interface",
-            "format": ["PascalCase"],
-            "custom": {
-              "regex": "^I[A-Z]",
-              "match": true
-            }
-          }
-        ]
-      }
+      "rules": {}
     },
     {
       "files": ["*.js", "*.jsx"],

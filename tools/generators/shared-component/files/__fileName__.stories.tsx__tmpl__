@@ -1,3 +1,4 @@
+import React from 'react'
 import { text } from '@storybook/addon-knobs';
 import { ignoreStory } from '@latitude55/StorybookIgnoreStory';
 import { <%= componentName %> } from '.';

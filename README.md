@@ -51,6 +51,9 @@ Micro-frontends are an incredible architectural model for separating domains & b
    // If you installed the Nx cli
    nx serve <application-name>
 
+   // Use package.json scripts
+   npm run start properties
+
    // Otherwise
    npx run nx serve <application-name>
    ```
@@ -94,15 +97,23 @@ We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design 
 
 2. Open the design guide in your browser at `http://localhost:4400`
 
-## Upgrading Nx workspace
+## Making new things
 
-Run `npx nx migrate latest` to update workspace
+### New Next application
 
-## Create component
+```bash
+npx nx g @nrwl/next:app
+```
+
+### Create component
 
 ```bash
 nx workspace-generator shared-component foo --directory=libs/shared/ui/components --atomicLevel=molecules
 ```
+
+## Upgrading Nx workspace
+
+Run `npx nx migrate latest` to update workspace
 
 ## Work in progress
 

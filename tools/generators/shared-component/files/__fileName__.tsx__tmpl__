@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { <%= typeName %> } from './<%= fileName %>.types';
 import { StyledDiv } from './<%= fileName %>.styled';

@@ -29,7 +29,9 @@
               "getServerSideProps": true,
               "getStaticProps": true,
               "props": true,
-              "env": true
+              "env": true,
+              "prod": true,
+              "res": true
             }
           }
         ],

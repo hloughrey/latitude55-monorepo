@@ -1,6 +1,58 @@
 {
   "version": 2,
   "projects": {
+    "catalog": {
+      "root": "apps/services/catalog",
+      "sourceRoot": "apps/services/catalog/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/services/catalog",
+            "main": "apps/services/catalog/src/main.ts",
+            "tsConfig": "apps/services/catalog/tsconfig.app.json",
+            "assets": ["apps/services/catalog/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/services/catalog/src/environments/environment.ts",
+                  "with": "apps/services/catalog/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "catalog:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/services/catalog/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/services/catalog"],
+          "options": {
+            "jestConfig": "apps/services/catalog/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "marketing": {
       "root": "apps/marketing",
       "sourceRoot": "apps/marketing",
@@ -304,22 +356,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/next"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "properties"
+  }
 }

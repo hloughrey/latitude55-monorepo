@@ -11,6 +11,7 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: true,
   },
+  trailingSlash: true,
 };
 
 module.exports = withNx(nextConfig);

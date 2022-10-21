@@ -27,3 +27,6 @@ jobs:
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./dist/apps/marketing/exported s3://static-latitude55-microfrontend-marketing --delete
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id E3TFDBHX0H19EO --paths "/*"

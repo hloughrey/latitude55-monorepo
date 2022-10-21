@@ -92,7 +92,7 @@ Micro-frontends are an incredible architectural model for separating domains & b
 
 ### Running the design guide locally
 
-We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design guide.
+We use [Storybook](https://storybook.js.org/) to manage the design guide.
 
 1. Start Storybook
 

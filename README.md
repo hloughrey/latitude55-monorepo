@@ -20,6 +20,7 @@ Mono Repo
   - [Next application](#next-application)
   - [Create component](#create-component)
 - [Upgrading Nx workspace](#upgrading-nx-workspace)
+- [Deployments](#deployments)
 - [Work in progress](#work-in-progress)
   - [Resources](#resources)
   - [Running Affected App](#running-affected-app)
@@ -119,6 +120,10 @@ nx workspace-generator shared-component foo --directory=libs/shared/ui/component
 ## Upgrading Nx workspace
 
 Run `npx nx migrate latest` to update workspace
+
+## Deployments
+
+This repo deploys to multiple locations to demonstrate the different ways you can deploy microfrontends. The following [diagram](https://drive.google.com/file/d/1uf3ukRK-M-YpAfbKU0rGblHG3tgmz4qb/view?usp=sharing) demonstrates the different deployments & the respective branch.
 
 ## Work in progress
 

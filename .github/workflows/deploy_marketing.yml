@@ -1,0 +1,29 @@
+name: Deploy static-deploy branch
+
+on:
+  push:
+    branches: [static-deploy]
+
+jobs:
+  deploy:
+    name: Deploy application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: bahmutov/npm-install@v1.4.5
+
+      - name: Build
+        run: npx nx export marketing
+
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync ./dist/apps/marketing/exported s3://static-latitude55-microfrontend-marketing --delete

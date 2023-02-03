@@ -10,19 +10,21 @@ applications:
         build:
           commands:
             # Builds successfull - can't find '.next'
-            # - npx nx run marketing:build
-            # - cp -R dist/apps/marketing/.next apps/marketing
-            # - cp -R node_modules apps/marketing
-            # - cd apps/marketing
-            # - export AMPLIFY_SSR_BUILD=true
-            - npx nx build marketing --prod --skip-nx-cache
-            - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
-            - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
+            - npx nx run marketing:build
+            - cp -R dist/apps/marketing/.next apps/marketing
+            - cp -R node_modules apps/marketing
             - cd apps/marketing
-            # create symbolic link from root to app folder
-            - ln -s ../../dist/apps/marketing/.next .next
-            - ln -s ../../node_modules node_modules
-            - ln -s ../../libs libs
+            - ls -lah dist/apps/marketing/.next
+            - ls -lah apps/marketing
+            - export AMPLIFY_SSR_BUILD=true
+            # - npx nx build marketing --prod --skip-nx-cache
+            # - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
+            # - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
+            # - cd apps/marketing
+            # # create symbolic link from root to app folder
+            # - ln -s ../../dist/apps/marketing/.next .next
+            # - ln -s ../../node_modules node_modules
+            # - ln -s ../../libs libs
       artifacts:
         baseDirectory: ../../dist/apps/marketing/.next
         files:

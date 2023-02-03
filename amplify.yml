@@ -10,6 +10,7 @@ applications:
         build:
           commands:
             # Builds successfull - can't find '.next'
+            - export AMPLIFY_SSR_BUILD=true
             - npx nx run marketing:build
             - cp -R dist/apps/marketing/.next apps/marketing
             - cp -R node_modules apps/marketing
@@ -17,9 +18,8 @@ applications:
             - ls -lah apps/marketing
             - cd apps/marketing
             - pwd
-            - export AMPLIFY_SSR_BUILD=true
       artifacts:
-        baseDirectory: ../../dist/apps/marketing/.next
+        baseDirectory: ../../dist/apps/marketing/.next/standalone/dist/apps/marketing/.next
         files:
           - '**/*'
       cache:

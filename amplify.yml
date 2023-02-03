@@ -10,7 +10,7 @@ applications:
             - npx nx run marketing:build
             - cd apps/marketing
             # create symbolic link from root to app folder
-            - ln -s ../../dist/apps/nextjsapp/.next .next
+            - ln -s ../../dist/apps/marketing/.next .next
             - ln -s ../../node_modules node_modules
             # enable SSR build flag to transpile libs/ui
             - export AMPLIFY_SSR_BUILD=true

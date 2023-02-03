@@ -1,4 +1,5 @@
-import path from 'node:path';
+/* eslint-disable unicorn/prefer-node-protocol*/
+import path from 'path';
 path.resolve('./next.config.js');
 
 import React from 'react';

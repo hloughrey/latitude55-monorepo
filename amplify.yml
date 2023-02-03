@@ -3,10 +3,12 @@ applications:
   - appRoot: apps/marketing
     frontend:
       phases:
-        build:
+        preBuild:
           commands:
             - cd ../../
             - npm install
+        build:
+          commands:
             - npx nx run marketing:build
             - cp -R dist/apps/marketing/.next apps/marketing
             - cp -R node_modules apps/marketing

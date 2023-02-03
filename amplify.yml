@@ -14,6 +14,7 @@ applications:
             - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
             - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
       artifacts:
+        discard-paths: yes
         baseDirectory: dist/apps/marketing/.next
         files:
           - '**/*'
@@ -34,6 +35,7 @@ applications:
             - mv ./dist/apps/properties/.next/standalone/apps/properties/* ./dist/apps/properties/.next/standalone/
             - sed -i 's/\/..\/..//' ./dist/apps/properties/.next/standalone/server.js
       artifacts:
+        discard-paths: yes
         baseDirectory: dist/apps/properties/.next
         files:
           - '**/*'

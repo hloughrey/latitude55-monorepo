@@ -12,14 +12,16 @@ applications:
             # Builds successfull - can't find '.next'
             - export AMPLIFY_SSR_BUILD=true
             - npx nx run marketing:build
-            - cp -R dist/apps/marketing/.next apps/marketing
-            - cp -R node_modules apps/marketing
-            - ls -lah dist/apps/marketing/.next
-            - ls -lah apps/marketing
-            - cd apps/marketing
-            - pwd
+            - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
+            - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
+            # - cp -R dist/apps/marketing/.next apps/marketing
+            # - cp -R node_modules apps/marketing
+            # - ls -lah dist/apps/marketing/.next
+            # - ls -lah apps/marketing
+            # - cd apps/marketing
+            # - pwd
       artifacts:
-        baseDirectory: ../../dist/apps/marketing/.next/standalone/dist/apps/marketing/.next
+        baseDirectory: dist/apps/marketing/.next
         files:
           - '**/*'
       cache:

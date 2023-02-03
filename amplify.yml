@@ -8,14 +8,12 @@ applications:
             - cd ../../
             - npm install
             - npx nx run marketing:build
+            - cp -R dist/apps/marketing/.next apps/marketing
+            - cp -R node_modules apps/marketing
             - cd apps/marketing
-            # create symbolic link from root to app folder
-            - ln -s ../../dist/apps/marketing/.next .next
-            - ln -s ../../node_modules node_modules
-            # enable SSR build flag to transpile libs/ui
             - export AMPLIFY_SSR_BUILD=true
       artifacts:
-        baseDirectory: ../../dist/apps/marketing/.next
+        baseDirectory: .next
         files:
           - '**/*'
       cache:

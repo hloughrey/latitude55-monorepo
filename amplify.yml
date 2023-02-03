@@ -1,20 +1,19 @@
 version: 1
 applications:
-  - appRoot: apps/marketing
-    frontend:
+  - frontend:
       phases:
         build:
           commands:
             - cd ../../
-            - npm i
-            - npx nx run marketing:build:production
-            - cp -R dist/apps/marketing/.next apps/marketing
-            - cp -R node_modules apps/marketing
+            - npm install
+            - npx nx run marketing:build
             - cd apps/marketing
+            - npm install
       artifacts:
-        baseDirectory: .next
+        baseDirectory: ../../dist/apps/marketing/.next
         files:
           - '**/*'
       cache:
         paths:
           - node_modules/**/*
+    appRoot: apps/marketing

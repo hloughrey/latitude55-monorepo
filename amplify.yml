@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: apps/marketing
+    frontend:
       phases:
         build:
           commands:
@@ -8,7 +9,11 @@ applications:
             - npm install
             - npx nx run marketing:build
             - cd apps/marketing
-            - npm install
+            # create symbolic link from root to app folder
+            - ln -s ../../dist/apps/nextjsapp/.next .next
+            - ln -s ../../node_modules node_modules
+            # enable SSR build flag to transpile libs/ui
+            - export AMPLIFY_SSR_BUILD=true
       artifacts:
         baseDirectory: ../../dist/apps/marketing/.next
         files:
@@ -16,4 +21,3 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-    appRoot: apps/marketing

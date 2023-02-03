@@ -9,13 +9,22 @@ applications:
             - npm install
         build:
           commands:
-            - npx nx run marketing:build
-            - cp -R dist/apps/marketing/.next apps/marketing
-            - cp -R node_modules apps/marketing
+            # Builds successfull - can't find '.next'
+            # - npx nx run marketing:build
+            # - cp -R dist/apps/marketing/.next apps/marketing
+            # - cp -R node_modules apps/marketing
+            # - cd apps/marketing
+            # - export AMPLIFY_SSR_BUILD=true
+            - npx nx build marketing --prod --skip-nx-cache
+            - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
+            - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
             - cd apps/marketing
-            - export AMPLIFY_SSR_BUILD=true
+            # create symbolic link from root to app folder
+            - ln -s ../../dist/apps/marketing/.next .next
+            - ln -s ../../node_modules node_modules
+            - ln -s ../../libs libs
       artifacts:
-        baseDirectory: .next
+        baseDirectory: ../../dist/apps/marketing/.next
         files:
           - '**/*'
       cache:

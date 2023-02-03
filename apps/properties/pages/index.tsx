@@ -8,7 +8,7 @@ export function Index() {
       <ul>
         <li>
           <Link href={`${process.env.NEXT_PUBLIC_BASE_DOMAIN}`} passHref>
-            <a>Link to marketing site</a>
+            Link to marketing site
           </Link>
         </li>
       </ul>

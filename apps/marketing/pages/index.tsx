@@ -8,7 +8,7 @@ export function Index() {
       <ul>
         <li>
           <Link href="/properties/" passHref>
-            <a>Link to properties</a>
+            Link to properties
           </Link>
         </li>
       </ul>

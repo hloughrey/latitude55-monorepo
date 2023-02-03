@@ -8,7 +8,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": [
           "build",
@@ -16,7 +16,8 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "parallel": 1
       }
     }
   },
@@ -28,32 +29,49 @@
       }
     ]
   },
-  "projects": {
-    "marketing": {
-      "tags": []
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
     },
-    "marketing-e2e": {
-      "tags": [],
-      "implicitDependencies": ["marketing"]
+    "@nrwl/next": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/next"
+  },
+  "defaultProject": "properties",
+  "targetDefaults": {
+    "e2e": {
+      "inputs": [
+        "default",
+        "^default"
+      ]
     },
-    "properties": {
-      "tags": []
+    "test": {
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/jest.preset.js"
+      ]
     },
-    "properties-e2e": {
-      "tags": [],
-      "implicitDependencies": ["properties"]
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
     },
-    "shared-ui-components": {
-      "tags": []
-    },
-    "shared-ui-theme": {
-      "tags": []
-    },
-    "shared-util-jest-set-test-props": {
-      "tags": []
-    },
-    "shared-util-storybook-ignore-story": {
-      "tags": []
+    "build-storybook": {
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/.storybook/**/*"
+      ]
     }
   }
 }

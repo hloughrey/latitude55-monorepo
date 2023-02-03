@@ -15,11 +15,15 @@
             "outputPath": "dist/apps/marketing"
           },
           "configurations": {
-            "production": {}
-          }
+            "production": {},
+            "development": {
+              "outputPath": "apps/marketing"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "deploy": {
-          "executor": "@nrwl/workspace:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "commands": [
               "nx build marketing",
@@ -38,8 +42,13 @@
             "production": {
               "buildTarget": "marketing:build:production",
               "dev": false
+            },
+            "development": {
+              "buildTarget": "marketing:build:development",
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "export": {
           "executor": "@nrwl/next:export",
@@ -51,7 +60,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/marketing"],
           "options": {
-            "jestConfig": "apps/marketing/jest.config.js",
+            "jestConfig": "apps/marketing/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -62,7 +71,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": []
     },
     "marketing-e2e": {
       "root": "apps/marketing-e2e",
@@ -89,7 +99,9 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["marketing"]
     },
     "properties": {
       "root": "apps/properties",
@@ -105,11 +117,15 @@
             "outputPath": "dist/apps/properties"
           },
           "configurations": {
-            "production": {}
-          }
+            "production": {},
+            "development": {
+              "outputPath": "apps/properties"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "deploy": {
-          "executor": "@nrwl/workspace:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "commands": [
               "nx build properties",
@@ -128,8 +144,13 @@
             "production": {
               "buildTarget": "properties:build:production",
               "dev": false
+            },
+            "development": {
+              "buildTarget": "properties:build:development",
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "export": {
           "executor": "@nrwl/next:export",
@@ -141,7 +162,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/properties"],
           "options": {
-            "jestConfig": "apps/properties/jest.config.js",
+            "jestConfig": "apps/properties/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -152,7 +173,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": []
     },
     "properties-e2e": {
       "root": "apps/properties-e2e",
@@ -179,7 +201,9 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["properties"]
     },
     "shared-ui-components": {
       "root": "libs/shared/ui/components",
@@ -199,7 +223,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/ui/components"],
           "options": {
-            "jestConfig": "libs/shared/ui/components/jest.config.js",
+            "jestConfig": "libs/shared/ui/components/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -208,9 +232,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
-            "config": {
-              "configFolder": "libs/shared/ui/components/.storybook"
-            }
+            "configDir": "libs/shared/ui/components/.storybook"
           },
           "configurations": {
             "ci": {
@@ -220,13 +242,11 @@
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": ["{options.outputDir}"],
           "options": {
             "uiFramework": "@storybook/react",
-            "outputPath": "dist/storybook/shared-ui-components",
-            "config": {
-              "configFolder": "libs/shared/ui/components/.storybook"
-            }
+            "configDir": "libs/shared/ui/components/.storybook",
+            "outputDir": "dist/storybook/shared-ui-components"
           },
           "configurations": {
             "ci": {
@@ -234,7 +254,8 @@
             }
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-ui-theme": {
       "root": "libs/shared/ui/theme",
@@ -252,11 +273,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/ui/theme"],
           "options": {
-            "jestConfig": "libs/shared/ui/theme/jest.config.js",
+            "jestConfig": "libs/shared/ui/theme/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-util-jest-set-test-props": {
       "root": "libs/shared/util/jest/set-test-props",
@@ -274,11 +296,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/util/jest/set-test-props"],
           "options": {
-            "jestConfig": "libs/shared/util/jest/set-test-props/jest.config.js",
+            "jestConfig": "libs/shared/util/jest/set-test-props/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-util-storybook-ignore-story": {
       "root": "libs/shared/util/storybook/ignore-story",
@@ -298,28 +321,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/util/storybook/ignore-story"],
           "options": {
-            "jestConfig": "libs/shared/util/storybook/ignore-story/jest.config.js",
+            "jestConfig": "libs/shared/util/storybook/ignore-story/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/next"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "properties"
+  }
 }

@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   displayName: 'shared-util-jest-set-test-props',
   preset: '../../../../../jest.preset.js',
   globals: {
@@ -14,3 +14,5 @@ module.exports = {
   coverageDirectory:
     '../../../../../coverage/libs/shared/util/jest/set-test-props',
 };
+
+export default config;

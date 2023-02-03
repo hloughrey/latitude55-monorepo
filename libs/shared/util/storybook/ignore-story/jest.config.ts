@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   displayName: 'shared-util-storybook-ignore-story',
   preset: '../../../../../jest.preset.js',
   globals: {
@@ -14,3 +14,5 @@ module.exports = {
   coverageDirectory:
     '../../../../../coverage/libs/shared/util/storybook/ignore-story',
 };
+
+export default config;

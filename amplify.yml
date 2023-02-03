@@ -1,25 +1,25 @@
 version: 1
 applications:
-  - appRoot: apps/marketing
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - cd ../../
-            - npm install
-        build:
-          commands:
-            - export AMPLIFY_SSR_BUILD=true
-            - npx nx run marketing:build
-            - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
-            - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
-      artifacts:
-        baseDirectory: dist/apps/marketing/.next
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
+  # - appRoot: apps/marketing
+  #   frontend:
+  #     phases:
+  #       preBuild:
+  #         commands:
+  #           - cd ../../
+  #           - npm install
+  #       build:
+  #         commands:
+  #           - export AMPLIFY_SSR_BUILD=true
+  #           - npx nx run marketing:build
+  #           - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
+  #           - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js
+  #     artifacts:
+  #       baseDirectory: dist/apps/marketing/.next
+  #       files:
+  #         - '**/*'
+  #     cache:
+  #       paths:
+  #         - node_modules/**/*
   - appRoot: apps/properties
     frontend:
       phases:

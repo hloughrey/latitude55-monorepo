@@ -1,3 +1,8 @@
+/* eslint-disable unicorn/prefer-node-protocol*/
+import path from 'path';
+path.resolve('./next.config.js');
+
+import React from 'react';
 import Link from 'next/link';
 import { StyledHeading } from '../page-lib/index-page';
 

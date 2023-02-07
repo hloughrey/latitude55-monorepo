@@ -1,3 +1,7 @@
+/* eslint-disable unicorn/prefer-node-protocol*/
+import path from 'path';
+path.resolve('./next.config.js');
+
 import Link from 'next/link';
 import { StyledHeading } from '../page-lib/index-page';
 
@@ -7,7 +11,7 @@ export function Index() {
       <StyledHeading>Welcome to the new Properties application</StyledHeading>
       <ul>
         <li>
-          <Link href={`${process.env.NEXT_PUBLIC_BASE_DOMAIN}`} passHref>
+          <Link href={'/'} passHref>
             Link to marketing site
           </Link>
         </li>

@@ -16,6 +16,20 @@ const nextConfig = {
     // outputStandalone: true,
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/properties/:slug*',
+  //       destination:
+  //         'https://aws-amplify-cdk.d1xpoe19tv959b.amplifyapp.com/properties/:slug*', // Matched parameters can be used in the destination
+  //     },
+  //     {
+  //       source: '/properties',
+  //       destination:
+  //         'https://aws-amplify-cdk.d1xpoe19tv959b.amplifyapp.com/properties', // Matched parameters can be used in the destination
+  //     },
+  //   ];
+  // },
 };
 
 module.exports = withNx(nextConfig);

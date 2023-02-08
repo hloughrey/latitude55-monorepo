@@ -2,7 +2,6 @@
 import path from 'path';
 path.resolve('./next.config.js');
 
-import Link from 'next/link';
 import { StyledHeading } from '../page-lib/index-page';
 
 export function Index() {
@@ -11,9 +10,9 @@ export function Index() {
       <StyledHeading>Welcome to the new Properties application</StyledHeading>
       <ul>
         <li>
-          <Link href={'/'} passHref>
+          <a href="https://amplify.latitude55.dev" rel="noopener noreferrer">
             Link to marketing site
-          </Link>
+          </a>
         </li>
       </ul>
     </div>

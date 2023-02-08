@@ -21,6 +21,7 @@
       "@latitude55/StorybookIgnoreStory": [
         "libs/shared/util/storybook/ignore-story/src/index.ts"
       ],
+      "@latitude55/build": ["libs/build/src/index.ts"],
       "@latitude55/shared/ui/components": [
         "libs/shared/ui/components/src/index.ts"
       ],

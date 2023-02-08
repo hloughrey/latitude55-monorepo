@@ -1,6 +1,35 @@
 {
   "version": 2,
   "projects": {
+    "build": {
+      "root": "libs/build",
+      "sourceRoot": "libs/build/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/build/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+          "options": {
+            "jestConfig": "libs/build/jest.config.ts",
+            "passWithNoTests": true
+          },
+          "configurations": {
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
+            }
+          }
+        }
+      },
+      "tags": []
+    },
     "marketing": {
       "root": "apps/marketing",
       "sourceRoot": "apps/marketing",

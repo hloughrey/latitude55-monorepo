@@ -9,10 +9,10 @@ import { StyledHeading } from '../page-lib/index-page';
 export function Index() {
   return (
     <div>
-      <StyledHeading>Welcome to the new Marketing application</StyledHeading>
+      <StyledHeading>Welcome to the new Marketing application v2</StyledHeading>
       <ul>
         <li>
-          <Link href="/properties/" passHref>
+          <Link href="/properties" passHref>
             Link to properties
           </Link>
         </li>

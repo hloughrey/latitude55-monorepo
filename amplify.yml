@@ -1,6 +1,10 @@
 version: 1
 applications:
   - appRoot: apps/properties
+    env:
+      variables:
+        - AMPLIFY_SSR_BUILD: true
+        - AMPLIFY_DIFF_DEPLOY: false
     frontend:
       phases:
         preBuild:
@@ -9,7 +13,6 @@ applications:
             - npm install
         build:
           commands:
-            - export AMPLIFY_SSR_BUILD=true
             - npx nx run properties:build
             - mv ./dist/apps/properties/.next/standalone/apps/properties/* ./dist/apps/properties/.next/standalone/
             - sed -i 's/\/..\/..//' ./dist/apps/properties/.next/standalone/server.js
@@ -22,6 +25,10 @@ applications:
         paths:
           - node_modules/**/*
   - appRoot: apps/marketing
+    env:
+    variables:
+      - AMPLIFY_SSR_BUILD: true
+      - AMPLIFY_DIFF_DEPLOY: false
     frontend:
       phases:
         preBuild:
@@ -30,7 +37,6 @@ applications:
             - npm install
         build:
           commands:
-            - export AMPLIFY_SSR_BUILD=true
             - npx nx run marketing:build
             - mv ./dist/apps/marketing/.next/standalone/apps/marketing/* ./dist/apps/marketing/.next/standalone/
             - sed -i 's/\/..\/..//' ./dist/apps/marketing/.next/standalone/server.js

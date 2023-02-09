@@ -8,7 +8,9 @@ import { StyledHeading } from '../page-lib/index-page';
 export function Index() {
   return (
     <div>
-      <StyledHeading>Welcome to the new Properties application</StyledHeading>
+      <StyledHeading>
+        Welcome to the new Properties application - should not deploy
+      </StyledHeading>
       <ul>
         <li>
           <Link href={'/'} passHref>

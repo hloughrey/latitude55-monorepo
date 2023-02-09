@@ -14,8 +14,17 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>Welcome to properties!</title>
         </Head>
-        <main>
-          <Component {...pageProps} />
+        <main
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            background: `${darkTheme.colors.background}`,
+          }}
+        >
+          <div style={{ flex: 1, padding: '2rem' }}>
+            <Component {...pageProps} />
+          </div>
         </main>
       </ThemeProvider>
     </Fragment>

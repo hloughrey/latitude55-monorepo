@@ -2,6 +2,9 @@
   "name": "latitude55-monorepo",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "18.0.0"
+  },
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
@@ -80,7 +83,7 @@
     "aws-cdk": "2.63.2",
     "aws-cdk-lib": "2.63.2",
     "babel-jest": "28.1.3",
-    "babel-loader": "8.1.0",
+    "babel-loader": "9.1.2",
     "babel-plugin-styled-components": "1.10.7",
     "constructs": "10.1.243",
     "cypress": "3.8.3",

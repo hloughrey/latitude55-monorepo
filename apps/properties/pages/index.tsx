@@ -1,8 +1,9 @@
 /* eslint-disable unicorn/prefer-node-protocol*/
+import Link from 'next/link';
 import path from 'path';
 path.resolve('./next.config.js');
 
-import { StyledHeading } from '../page-lib/index-page';
+import { StyledHeading, StyledLink } from '../page-lib/index-page';
 
 export function Index() {
   return (
@@ -14,6 +15,9 @@ export function Index() {
             Link to marketing site
           </a>
         </li>
+        <StyledLink>
+          <Link href={`/8795`}>Link to propertyId: 8795</Link>
+        </StyledLink>
       </ul>
     </div>
   );

@@ -1,14 +1,14 @@
 export default function EnvironmentVariables() {
   return (
     <div>
-      <h2>Server</h2>
+      {/* <h2>Server</h2>
       <ul>
         <li>FEATURE_TOGGLE_BOOLEAN: {process.env.FEATURE_TOGGLE_BOOLEAN}</li>
         <li>FEATURE_TOGGLE_DATE: {process.env.FEATURE_TOGGLE_DATE}</li>
         <li>API_ENDPOINT: {process.env.API_ENDPOINT}</li>
         <li>SECRET_NUMBER: {process.env.SECRET_NUMBER}</li>
         <li>SECRET_STRING: {process.env.SECRET_STRING}</li>
-      </ul>
+      </ul> */}
       <h2>Browser - NEXT PROTECTED</h2>
       <ul>
         <li>
@@ -33,14 +33,14 @@ export default function EnvironmentVariables() {
   );
 }
 
-export async function getServerSideProps(context) {
-  console.log('FEATURE_TOGGLE_BOOLEAN: ', process.env.FEATURE_TOGGLE_BOOLEAN);
-  console.log('FEATURE_TOGGLE_DATE: ', process.env.FEATURE_TOGGLE_DATE);
-  console.log('API_ENDPOINT: ', process.env.API_ENDPOINT);
-  console.log('SECRET_NUMBER: ', process.env.SECRET_NUMBER);
-  console.log('SECRET_STRING: ', process.env.SECRET_STRING);
+// export async function getServerSideProps(context) {
+//   console.log('FEATURE_TOGGLE_BOOLEAN: ', process.env.FEATURE_TOGGLE_BOOLEAN);
+//   console.log('FEATURE_TOGGLE_DATE: ', process.env.FEATURE_TOGGLE_DATE);
+//   console.log('API_ENDPOINT: ', process.env.API_ENDPOINT);
+//   console.log('SECRET_NUMBER: ', process.env.SECRET_NUMBER);
+//   console.log('SECRET_STRING: ', process.env.SECRET_STRING);
 
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-}
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   };
+// }

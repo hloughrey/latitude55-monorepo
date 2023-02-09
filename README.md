@@ -14,7 +14,6 @@ Mono Repo
 - [🤩 Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Running an application locally - Development Mode](#running-an-application-locally---development-mode)
-  - [Running an application locally - Production Mode](#running-an-application-locally---production-mode)
   - [Running the design guide locally](#running-the-design-guide-locally)
 - [Making new things](#making-new-things)
   - [Next application](#next-application)
@@ -35,13 +34,19 @@ Micro-frontends are an incredible architectural model for separating domains & b
 
 ### Prerequisites
 
-- Node >= 14.x.x
+- Node >= 18.x.x
 
-  You can use [nvm](https://github.com/nvm-sh/nvm) or [nvm for Windows](https://github.com/coreybutler/nvm-windows) in manage multiple node versions if that's helpful.
+  Use any of the following to manage different node versions on you machine:
+
+  - [Volta](https://volta.sh/)
+  - [nvm](https://github.com/nvm-sh/nvm)
+  - [nvm for Windows](https://github.com/coreybutler/nvm-windows)
 
 - **Optional** - [Nx Cli](https://nx.dev/l/a/getting-started/nx-cli)
 
-  `yarn global add @nrwl/cli`
+  ```bash
+  npm i -g @nrwl/cli
+  ```
 
 ### Running an application locally - Development Mode
 
@@ -68,28 +73,7 @@ Micro-frontends are an incredible architectural model for separating domains & b
 
 1. Open the application in your browser at `http://localhost:4200/<application baseUrl>`
 
-   See the **README** within the application your running to identify the baseUrl
-
-### Running an application locally - Production Mode
-
-> NOTE: Useful for debugging; this builds and serves the application in the same way as it does in our pipeline for both the QA and production environments.
-
-1. Build the application you're interested in running:
-
-   ```bash
-   nx deploy <application-name>
-   ```
-
-2. Copy the root level package.json into the build directory:
-
-   ```bash
-   // No environment variables
-   docker run --rm -p 3000:3000  --name properties properties
-
-   // With environment variables
-   docker run --rm -p 3000:3000 -e FEATURE_TOGGLE_BOOLEAN=true --name properties properties
-
-   ```
+   See the **next.config.ts** file within the application your running to identify the baseUrl
 
 ### Running the design guide locally
 

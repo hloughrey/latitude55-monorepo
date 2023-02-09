@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import { StyledHeading } from '../page-lib/index-page';
+import { StyledHeading, StyledLink } from '../page-lib/index-page';
 
 export function Index() {
   return (
     <div>
       <StyledHeading>Welcome to the new Marketing application</StyledHeading>
       <ul>
-        <li>
+        <StyledLink>
           <Link href="/properties/" passHref>
             Link to properties
           </Link>
-        </li>
+        </StyledLink>
       </ul>
     </div>
   );

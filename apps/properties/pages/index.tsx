@@ -1,16 +1,17 @@
 import Link from 'next/link';
-import { StyledHeading } from '../page-lib/index-page';
+import { StyledHeading, StyledLink } from '../page-lib/index-page';
 
 export function Index() {
   return (
     <div>
       <StyledHeading>Welcome to the new Properties application</StyledHeading>
       <ul>
-        <li>
-          <Link href={`${process.env.NEXT_PUBLIC_BASE_DOMAIN}`} passHref>
-            Link to marketing site
-          </Link>
-        </li>
+        <StyledLink>
+          <a href="/">Link to marketing site</a>
+        </StyledLink>
+        <StyledLink>
+          <Link href={`/8795`}>Link to propertyId: 8795</Link>
+        </StyledLink>
       </ul>
     </div>
   );

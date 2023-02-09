@@ -12,13 +12,15 @@ export type TThemeColours = keyof typeof lightTheme.colors;
 export type WithTheme<T = Record<string, unknown>> = T & { theme: Theme };
 
 export const breakpoints = ['xs', 's', 'm', 'l', 'xl'] as const;
-export type TBreakpoint = typeof breakpoints[number];
+export type TBreakpoint = (typeof breakpoints)[number];
 
 export type Theme = {
   name: string;
   colors: {
     primaryColor: string;
     secondaryColor: string;
+    ribbon: string;
+    background: string;
   };
 };
 

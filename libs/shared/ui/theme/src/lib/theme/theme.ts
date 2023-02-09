@@ -3,15 +3,19 @@ import { Theme } from './theme.type';
 export const lightTheme: Theme = {
   name: 'Light Theme',
   colors: {
-    primaryColor: 'red',
-    secondaryColor: '#666',
+    primaryColor: '#2B2828',
+    secondaryColor: '#B60000',
+    ribbon: '#434b54',
+    background: '#dbdbdb',
   },
 };
 
 export const darkTheme: Theme = {
   name: 'Dark Theme',
   colors: {
-    primaryColor: 'green',
-    secondaryColor: '#cacaca',
+    primaryColor: '#dbdbdb',
+    secondaryColor: '#B60000',
+    ribbon: '#2c2c30',
+    background: '#2B2828',
   },
 };

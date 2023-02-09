@@ -1,6 +1,4 @@
 import React from 'react'
-import { text } from '@storybook/addon-knobs';
-import { ignoreStory } from '@latitude55/StorybookIgnoreStory';
 import { <%= componentName %> } from '.';
 
 export default {
@@ -13,7 +11,3 @@ export default {
 
 export const Basic = () => <<%= componentName %> componentName="<%= componentName %>" />;
 
-export const ControlledWithKnobs = () => (
-    <<%= componentName %> componentName={text('componentName', '<%= componentName %>')} />
-);
-ControlledWithKnobs.story = ignoreStory();

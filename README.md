@@ -79,7 +79,7 @@ This repository has a few multiple branches each of which will have roughly the 
 
 ### Running the design guide locally
 
-We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design guide.
+We use [Storybook](https://storybook.js.org/) to manage the design guide.
 
 1. Start Storybook
 

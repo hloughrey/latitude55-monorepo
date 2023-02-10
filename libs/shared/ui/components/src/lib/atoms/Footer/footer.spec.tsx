@@ -20,8 +20,6 @@ describe(`Footer`, () => {
       </ThemeProvider>
     );
 
-    expect(
-      screen.getByText(`Hello, I'm your new Footer component 👋!`)
-    ).toBeInTheDocument();
+    expect(screen.getByText(`Footer`)).toBeInTheDocument();
   });
 });

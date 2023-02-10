@@ -20,8 +20,6 @@ describe(`Header`, () => {
       </ThemeProvider>
     );
 
-    expect(
-      screen.getByText(`Hello, I'm your new Header component 👋!`)
-    ).toBeInTheDocument();
+    expect(screen.getByText(`Header`)).toBeInTheDocument();
   });
 });

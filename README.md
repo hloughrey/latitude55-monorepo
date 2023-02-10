@@ -5,11 +5,7 @@
 Mono Repo
 </h1>
 
-Monorepo's have become popular over the last few years as they allow the sharing of code between different applications. [Nx](https://nx.dev) is a monorepo orchestration tool which comes with all the monorepo tooling you need out of the box.
-
-Another popular approach to building complex applications which is growing in popularity are microfrontends as they enable the separation of domains & business logic & allow for loosely coupled independently shippable applications.
-
-There are a number of different approachs to microfrontends & this repo attemtps to demonstrate how you can build microfrontends within an Nx monorepo & deploy them out to production.
+This branch discusses how deploy multiple [Nx](https://nx.dev/) based [NextJs](https://nextjs.org/) applications out to [Vercel](https://vercel.com/) & have them displayed to the user under a single domain.
 
 # Table of Contents
 
@@ -19,20 +15,14 @@ There are a number of different approachs to microfrontends & this repo attemtps
 - [🤩 Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Running an application locally](#running-an-application-locally)
-  - [Running the design guide locally](#running-the-design-guide-locally)
-- [Making new things](#making-new-things)
-  - [Next application](#next-application)
-  - [Create component](#create-component)
-- [Upgrading Nx workspace](#upgrading-nx-workspace)
-- [Deployments](#deployments)
-  - [Deploy to Vercel](#deploy-to-vercel)
-  - [Deploy to AWS Amplify](#deploy-to-aws-amplify)
+- [Deployment](#deployment)
+- [Pros & Cons](#pros--cons)
+  - [Pros](#pros)
+  - [Cons](#cons)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 🤩 Getting Started
-
-This repository has a few multiple branches each of which will have roughly the same applications but will deploy out to a live application slightly differently. Checkout each branchs' README for specific deployment details.
 
 ### Prerequisites
 
@@ -77,62 +67,21 @@ This repository has a few multiple branches each of which will have roughly the 
 
    See the **next.config.ts** file within the application your running to identify the baseUrl
 
-### Running the design guide locally
+## Deployment
 
-We use [Storybook](https://storybook.js.org/) to manage the Purplebricks design guide.
+Vercel flows a [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) approach to development. Within the Vercel dashboard you create a new application & point it at your Github (or alternative) repo & branch & anytime you push a change to that branch, vercel will automatically trigger a build & deployment.
 
-1. Start Storybook
+[Deploying Next.js applications to Vercel](https://nx.dev/recipes/other/deploy-nextjs-to-vercel)
 
-   ```bash
-   nx run shared-ui-components:storybook
-   ```
+As this repo has 2 applications, 2 projects were created in Vercel & deployed on custom domains. Once both applications were deployed a Cloudfront distribution was created to combine the 2 applications under a single domain.
 
-2. Open the design guide in your browser at `http://localhost:4400`
+## Pros & Cons
 
-## Making new things
+### Pros
 
-### Next application
+- Easy to configure
+- Hosted on Vercel - creator of NextJs
 
-```bash
-npx nx g @nrwl/next:app <app name>
-```
+### Cons
 
-### Create component
-
-```bash
-nx workspace-generator shared-component foo --directory=libs/shared/ui/components --atomicLevel=molecules
-```
-
-## Upgrading Nx workspace
-
-1. Update package.json to latest version of Nx
-
-   `npx nx migrate latest`
-
-2. Install updated packages
-
-   `npm i`
-
-3. Run migrations
-
-   `npx nx migrate --run-migrations=migrations.json`
-
-## Deployments
-
-This repo deploys to multiple locations to demonstrate the different ways you can deploy microfrontends. The following [diagram](https://drive.google.com/file/d/1uf3ukRK-M-YpAfbKU0rGblHG3tgmz4qb/view?usp=sharing) demonstrates the different deployments & the respective branch.
-
-### Deploy to [Vercel](https://vercel.com/)
-
-Vercel is the creator of [NextJs](https://nextjs.org/) & provides a fully managed platform for deploying it. It also provides a very simple solution for deploying NextJs applications from within an Nx monorepo.
-
-Checkout out the vercel branch to see details on how it is deployed & for the pros & cons of this approach.
-
-Deployed example applications can be found [here](https://vercel-microfrontends.latitude55.dev/).
-
-### Deploy to [AWS Amplify](https://aws.amazon.com/amplify/)
-
-AWS Amplify is a full stack deployment offering from AWS. They provide a fully managed deployment & hosting environment for NextJs.
-
-Checkout out the vercel branch to see details on how it is deployed & for the pros & cons of this approach.
-
-Deployed example applications can be found [here](https://amplify.latitude55.dev/).
+- Can't configure trunk based development.

@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { render } from '@testing-library/react';
 
 import Index from '../../pages/index';
+
 import { darkTheme } from '@latitude55/theme';
 
 function WithThemeProvider({

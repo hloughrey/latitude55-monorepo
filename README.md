@@ -5,32 +5,34 @@
 Mono Repo
 </h1>
 
+Monorepo's have become popular over the last few years as they allow the sharing of code between different applications. [Nx](https://nx.dev) is a monorepo orchestration tool which comes with all the monorepo tooling you need out of the box.
+
+Another popular approach to building complex applications which is growing in popularity are microfrontends as they enable the separation of domains & business logic & allow for loosely coupled independently shippable applications.
+
+There are a number of different approachs to microfrontends & this repo attemtps to demonstrate how you can build microfrontends within an Nx monorepo & deploy them out to production.
+
 # Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Microfrontends](#microfrontends)
 - [🤩 Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
-  - [Running an application locally - Development Mode](#running-an-application-locally---development-mode)
+  - [Running an application locally](#running-an-application-locally)
   - [Running the design guide locally](#running-the-design-guide-locally)
 - [Making new things](#making-new-things)
   - [Next application](#next-application)
   - [Create component](#create-component)
 - [Upgrading Nx workspace](#upgrading-nx-workspace)
 - [Deployments](#deployments)
-- [Work in progress](#work-in-progress)
-  - [Resources](#resources)
-  - [Running Affected App](#running-affected-app)
+  - [Deploy to Vercel](#deploy-to-vercel)
+  - [Deploy to AWS Amplify](#deploy-to-aws-amplify)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Microfrontends
-
-Micro-frontends are an incredible architectural model for separating domains & business logic into independently shippable & maintainable flows.
-
 ## 🤩 Getting Started
+
+This repository has a few multiple branches each of which will have roughly the same applications but will deploy out to a live application slightly differently. Checkout each branchs' README for specific deployment details.
 
 ### Prerequisites
 
@@ -48,7 +50,7 @@ Micro-frontends are an incredible architectural model for separating domains & b
   npm i -g @nrwl/cli
   ```
 
-### Running an application locally - Development Mode
+### Running an application locally
 
 1. Install dependencies
 
@@ -103,25 +105,34 @@ nx workspace-generator shared-component foo --directory=libs/shared/ui/component
 
 ## Upgrading Nx workspace
 
-Run `npx nx migrate latest` to update workspace
+1. Update package.json to latest version of Nx
+
+   `npx nx migrate latest`
+
+2. Install updated packages
+
+   `npm i`
+
+3. Run migrations
+
+   `npx nx migrate --run-migrations=migrations.json`
 
 ## Deployments
 
 This repo deploys to multiple locations to demonstrate the different ways you can deploy microfrontends. The following [diagram](https://drive.google.com/file/d/1uf3ukRK-M-YpAfbKU0rGblHG3tgmz4qb/view?usp=sharing) demonstrates the different deployments & the respective branch.
 
-## Work in progress
+### Deploy to [Vercel](https://vercel.com/)
 
-### Resources
+Vercel is the creator of [NextJs](https://nextjs.org/) & provides a fully managed platform for deploying it. It also provides a very simple solution for deploying NextJs applications from within an Nx monorepo.
 
-- https://blog.nrwl.io/nx-and-node-microservices-b6df3cd1bad6
-- https://dev.to/itsrennyman/manage-nextpublic-environment-variables-at-runtime-with-docker-53dl
+Checkout out the vercel branch to see details on how it is deployed & for the pros & cons of this approach.
 
-### Running Affected App
+Deployed example applications can be found [here](https://vercel-microfrontends.latitude55.dev/).
 
-```bash
-// build app
-nx affected --target=deploy
+### Deploy to [AWS Amplify](https://aws.amazon.com/amplify/)
 
-// run properties
-docker run --rm -p 3000:3000 -e FEATURE_TOGGLE_BOOLEAN=true -e FEATURE_TOGGLE_DATE='2021-10-11T20:04:34.024Z' -e API_ENDPOINT='https://latitude55/graphql' -e SECRET_NUMBER=772215 -e SECRET_STRING='Clonken' -e NEXT_PUBLIC_FEATURE_TOGGLE_BOOLEAN=false -e NEXT_PUBLIC_FEATURE_TOGGLE_DATE='2021-10-12T20:04:34.024Z' -e NEXT_PUBLIC_API_ENDPOINT='https://latitude55/api' -e NEXT_PUBLIC_SECRET_NUMBER=1510 -e NEXT_PUBLIC_SECRET_STRING='Brookhouse' --name properties properties
-```
+AWS Amplify is a full stack deployment offering from AWS. They provide a fully managed deployment & hosting environment for NextJs.
+
+Checkout out the vercel branch to see details on how it is deployed & for the pros & cons of this approach.
+
+Deployed example applications can be found [here](https://amplify.latitude55.dev/).

@@ -11,15 +11,3 @@ export default function Property() {
     </div>
   );
 }
-
-export async function getStaticPaths() {
-  return {
-    paths: [{ params: { propertyId: '@propertyId' } }],
-    fallback: false,
-  };
-}
-export async function getStaticProps(context) {
-  return {
-    props: { query: { propertyId: '' } },
-  };
-}

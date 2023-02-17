@@ -45,33 +45,18 @@
   "cli": {
     "defaultCollection": "@nrwl/next"
   },
-  "defaultProject": "properties",
   "targetDefaults": {
     "e2e": {
-      "inputs": [
-        "default",
-        "^default"
-      ]
+      "inputs": ["default", "^default"]
     },
     "test": {
-      "inputs": [
-        "default",
-        "^default",
-        "{workspaceRoot}/jest.preset.js"
-      ]
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json"
-      ]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
     "build-storybook": {
-      "inputs": [
-        "default",
-        "^default",
-        "{workspaceRoot}/.storybook/**/*"
-      ]
+      "inputs": ["default", "^default", "{workspaceRoot}/.storybook/**/*"]
     }
   }
 }

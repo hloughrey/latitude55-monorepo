@@ -1,6 +1,403 @@
 {
   "version": 2,
   "projects": {
+    "about": {
+      "root": "apps/about",
+      "sourceRoot": "apps/about/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/webpack:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/about",
+            "index": "apps/about/src/index.html",
+            "baseHref": "/",
+            "main": "apps/about/src/main.ts",
+            "tsConfig": "apps/about/tsconfig.app.json",
+            "assets": ["apps/about/src/favicon.ico", "apps/about/src/assets"],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "apps/about/webpack.config.js"
+          },
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/about/src/environments/environment.ts",
+                  "with": "apps/about/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "webpackConfig": "apps/about/webpack.config.prod.js"
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/react:module-federation-dev-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "about:build",
+            "hmr": true,
+            "port": 4203
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "about:build:development"
+            },
+            "production": {
+              "buildTarget": "about:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/about/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+          "options": {
+            "jestConfig": "apps/about/jest.config.ts",
+            "passWithNoTests": true
+          },
+          "configurations": {
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
+            }
+          }
+        },
+        "serve-static": {
+          "executor": "@nrwl/web:file-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "about:build",
+            "port": 4203
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "about:build:development"
+            },
+            "production": {
+              "buildTarget": "about:build:production"
+            }
+          }
+        }
+      },
+      "tags": []
+    },
+    "about-e2e": {
+      "root": "apps/about-e2e",
+      "sourceRoot": "apps/about-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/about-e2e/cypress.config.ts",
+            "devServerTarget": "about:serve:development",
+            "testingType": "e2e"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "about:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/about-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["about"]
+    },
+    "cart": {
+      "root": "apps/cart",
+      "sourceRoot": "apps/cart/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/webpack:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/cart",
+            "index": "apps/cart/src/index.html",
+            "baseHref": "/",
+            "main": "apps/cart/src/main.ts",
+            "tsConfig": "apps/cart/tsconfig.app.json",
+            "assets": ["apps/cart/src/favicon.ico", "apps/cart/src/assets"],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "apps/cart/webpack.config.js"
+          },
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cart/src/environments/environment.ts",
+                  "with": "apps/cart/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "webpackConfig": "apps/cart/webpack.config.prod.js"
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/react:module-federation-dev-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "cart:build",
+            "hmr": true,
+            "port": 4202
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "cart:build:development"
+            },
+            "production": {
+              "buildTarget": "cart:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/cart/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+          "options": {
+            "jestConfig": "apps/cart/jest.config.ts",
+            "passWithNoTests": true
+          },
+          "configurations": {
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
+            }
+          }
+        },
+        "serve-static": {
+          "executor": "@nrwl/web:file-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "cart:build",
+            "port": 4202
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "cart:build:development"
+            },
+            "production": {
+              "buildTarget": "cart:build:production"
+            }
+          }
+        }
+      },
+      "tags": []
+    },
+    "cart-e2e": {
+      "root": "apps/cart-e2e",
+      "sourceRoot": "apps/cart-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/cart-e2e/cypress.config.ts",
+            "devServerTarget": "cart:serve:development",
+            "testingType": "e2e"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cart:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/cart-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["cart"]
+    },
+    "host": {
+      "root": "apps/host",
+      "sourceRoot": "apps/host/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/webpack:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/host",
+            "index": "apps/host/src/index.html",
+            "baseHref": "/",
+            "main": "apps/host/src/main.ts",
+            "tsConfig": "apps/host/tsconfig.app.json",
+            "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "apps/host/webpack.config.js"
+          },
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/host/src/environments/environment.ts",
+                  "with": "apps/host/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "webpackConfig": "apps/host/webpack.config.prod.js"
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/react:module-federation-dev-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "host:build",
+            "hmr": true,
+            "port": 4200
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "host:build:development"
+            },
+            "production": {
+              "buildTarget": "host:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/host/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+          "options": {
+            "jestConfig": "apps/host/jest.config.ts",
+            "passWithNoTests": true
+          },
+          "configurations": {
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
+            }
+          }
+        },
+        "serve-static": {
+          "executor": "@nrwl/web:file-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "host:build",
+            "port": 4200
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "host:build:development"
+            },
+            "production": {
+              "buildTarget": "host:build:production"
+            }
+          }
+        }
+      },
+      "tags": []
+    },
+    "host-e2e": {
+      "root": "apps/host-e2e",
+      "sourceRoot": "apps/host-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/host-e2e/cypress.config.ts",
+            "devServerTarget": "host:serve:development",
+            "testingType": "e2e",
+            "baseUrl": "http://localhost:4200"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "host:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/host-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["host"]
+    },
     "shared-ui-components": {
       "root": "libs/shared/ui/components",
       "sourceRoot": "libs/shared/ui/components/src",
@@ -123,6 +520,138 @@
         }
       },
       "tags": []
+    },
+    "shop": {
+      "root": "apps/shop",
+      "sourceRoot": "apps/shop/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/webpack:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/shop",
+            "index": "apps/shop/src/index.html",
+            "baseHref": "/",
+            "main": "apps/shop/src/main.ts",
+            "tsConfig": "apps/shop/tsconfig.app.json",
+            "assets": ["apps/shop/src/favicon.ico", "apps/shop/src/assets"],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "apps/shop/webpack.config.js"
+          },
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/shop/src/environments/environment.ts",
+                  "with": "apps/shop/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "webpackConfig": "apps/shop/webpack.config.prod.js"
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/react:module-federation-dev-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "shop:build",
+            "hmr": true,
+            "port": 4201
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "shop:build:development"
+            },
+            "production": {
+              "buildTarget": "shop:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/shop/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+          "options": {
+            "jestConfig": "apps/shop/jest.config.ts",
+            "passWithNoTests": true
+          },
+          "configurations": {
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
+            }
+          }
+        },
+        "serve-static": {
+          "executor": "@nrwl/web:file-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "shop:build",
+            "port": 4201
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "shop:build:development"
+            },
+            "production": {
+              "buildTarget": "shop:build:production"
+            }
+          }
+        }
+      },
+      "tags": []
+    },
+    "shop-e2e": {
+      "root": "apps/shop-e2e",
+      "sourceRoot": "apps/shop-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/shop-e2e/cypress.config.ts",
+            "devServerTarget": "shop:serve:development",
+            "testingType": "e2e"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shop:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/shop-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["shop"]
     }
   }
 }

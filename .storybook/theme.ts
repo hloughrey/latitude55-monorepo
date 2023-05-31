@@ -32,7 +32,6 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: 'Latitude55 UI Guide',
-  //   brandUrl: 'https://purplebricks.co.uk',
   brandImage:
     'https://res.cloudinary.com/latitude55/image/upload/v1633952231/logo.svg',
 });
